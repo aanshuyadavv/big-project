@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderLust</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600&family=REM&family=Ubuntu:wght@300;400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <%- include('../include/navbar.ejs'); -%>
+
+
+        <div class="row">
+
+            <div class="col-8 offset-2 ">
+                <h3 class="mb-4 ">Create a New Listing</h3>
+
+                <form method="post" action="/listings" class="needs-validation" novalidate
+                    enctype="multipart/form-data">
+
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" id="title" class="form-control" name="listing[title]"
+                            placeholder="Enter a catchy title" required>
+                        <div class="valid-feedback">
+                            Title Looks good!
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" name="listing[description]"
+                            placeholder="Required example textarea" required></textarea>
+                        <div class="invalid-feedback">
+                            Please enter a message in the textarea.
+                        </div>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label for="image" class="form-label">Upload Listing Image</label>
+                        <input type="file" id="image" class="form-control" name="listing[image]"> 
+                    </div>
+
+                        <div class="row mb-3">
+
+                            <div class="col-lg-4 col-md-4 ">
+
+                                <label for="price" class="form-label">Price</label>
+                                <input type="number" id="price" min="0" class="form-control" name="listing[price]"
+                                    placeholder="1200" required>
+                                <div class="invalid-feedback">
+                                    Enter a valid price
+                                </div>
+
+
+
+
+                            </div>
+
+                            <div class="col-lg-8 col-md-8">
+
+                                <label for="country" class="form-label">Country</label>
+                                <input type="text" id="country" class="form-control" name="listing[country]"
+                                    placeholder="India" required>
+                                <div class="invalid-feedback">
+                                    Choose any country
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" id="location" class="form-control" name="listing[location]"
+                                placeholder="Jaipur, Rajasthan" required>
+                            <div class="invalid-feedback">
+                                Choose a valid location
+                            </div>
+
+                        </div>
+
+                        <button class="btn btn-dark mt-4 mb-4 add-btn">Add</button>
+
+                </form>
+
+            </div>
+        </div>
+
+        <footer>
+            <div class="f-info sticky-bottom w-100 ">
+
+                <div class="f-info-social">
+                    <i class="fa-brands fa-square-facebook"></i>
+                    <i class="fa-brands fa-square-instagram"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+
+                </div>
+                <div class="f-info-brand">&copy; WanderLust Private Limited</div>
+
+                <div class="f-info-link">
+                    <a href="/privacy">Privacy</a>
+                    <a href="/terms">Terms</a>
+                </div>
+
+            </div>
+        </footer>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+
+</body>
+
+</html>
