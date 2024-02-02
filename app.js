@@ -24,7 +24,7 @@ const LocalStrategy = require("passport-local")
 const User = require("./models/user")
 
 const session = require('express-session')
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo').default;
 
 const flash = require('connect-flash');
 
@@ -117,7 +117,7 @@ store.on("error", () => {
 
 //
 const sessionOptions = {
-  store,
+  store: store,
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
