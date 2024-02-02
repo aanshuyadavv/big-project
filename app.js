@@ -24,7 +24,7 @@ const LocalStrategy = require("passport-local")
 const User = require("./models/user")
 
 const session = require('express-session')
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo');
 
 const flash = require('connect-flash');
 
