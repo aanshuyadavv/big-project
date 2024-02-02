@@ -94,7 +94,7 @@ main()
   .catch(err => console.log(err));
 
 async function main() {
-  mongoose.connect(dbUrl)
+  await mongoose.connect(dbUrl)
 };
 
 // app.get('/', (req, res) => {
@@ -111,7 +111,7 @@ const store = MongoStore.create({
 
 })
 
-store.on("error", () => {
+store.on("error", (err) => {
   console.log("ERROR in MONGO SESSION STORE", err)
 })
 
