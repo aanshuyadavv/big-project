@@ -24,7 +24,7 @@ const LocalStrategy = require("passport-local")
 const User = require("./models/user")
 
 const session = require('express-session')
-const MongoStore = require('connect-mongo').default;
+const MongoStore = require('connect-mongo')(session);
 
 const flash = require('connect-flash');
 
@@ -102,7 +102,7 @@ async function main() {
 // })
 
 
-const store = new MongoStore({
+const store = MongoStore.create({
   mongoUrl: dbUrl,
   crypto: {
     secret: process.env.SECRET,
@@ -111,7 +111,7 @@ const store = new MongoStore({
 
 })
 
-store.on("error", () => {
+store.on("error", (err) => {
   console.log("ERROR in MONGO SESSION STORE", err)
 })
 
