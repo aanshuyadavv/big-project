@@ -95,8 +95,14 @@ main()
   .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(dbUrl)
-};
+  try {
+    await mongoose.connect(dbUrl);
+    console.log('Connected');
+  } catch (error) {
+    console.error('MongoDB Connection Error:', error);
+    throw error; // Rethrow the error to stop the application if the connection fails
+  }
+}
 
 // app.get('/', (req, res) => {
 //   res.send('root')
