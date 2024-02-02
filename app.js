@@ -85,6 +85,15 @@ app.use(express.static(path.join(__dirname, 'public')))
 // 1) create .env file, 2) read starting 10 lines of app.js , 3) create cloudConfig.js
 
 
+
+//  app (whose work is store files) and get the link from the app and store that link in databas
+//  this enviromental variable "SECRET" can't be directly accessed in app.js
+//  so in order to access it we'll install npm package called "dotenv"
+//  don't even by mistake upload or share it somewhere
+//  files con't be saved in database so for that we get file from client and we send this file to third party 
+
+
+
 // const MONGO_URL = 'mongodb://127.0.0.1:27017/wanderLust'
 const dbUrl = process.env.ATLASDB_URL;
 
