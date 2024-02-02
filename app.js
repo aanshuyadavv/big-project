@@ -109,7 +109,7 @@ async function main() {
     console.log('Connected');
   } catch (error) {
     console.error('MongoDB Connection Error:', error);
-    throw error; // Rethrow the error to stop the application if the connection fails
+    throw error; 
   }
 }
 
