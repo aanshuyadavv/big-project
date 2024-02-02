@@ -94,7 +94,7 @@ main()
   .catch(err => console.log(err));
 
 async function main() {
-  mongoose.connect(dbUrl, {})
+  await mongoose.connect(dbUrl, {})
 };
 
 // app.get('/', (req, res) => {
