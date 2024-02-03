@@ -23,7 +23,7 @@ const passport = require("passport")
 const LocalStrategy = require("passport-local")
 const User = require("./models/user")
 
-const session = require('express-session')
+const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
 const flash = require('connect-flash');
@@ -101,30 +101,25 @@ main()
   .then(() => {
     console.log('Connected to DB')
   })
-  .catch(err => console.log(err));
+  .catch((err) => {
+    console.log(err)
+  })
 
 async function main() {
-  try {
-    await mongoose.connect(dbUrl);
-    console.log('Connected');
-  } catch (error) {
-    console.error('MongoDB Connection Error:', error);
-    throw error; 
-  }
+  await mongoose.connect(dbUrl);
+
 }
 
 // app.get('/', (req, res) => {
 //   res.send('root')
 // })
 
-
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   crypto: {
-    secret: process.env.SECRET,
+    secret: process.env.SECRET
   },
-  touchAfter: 24 * 3600,
-
+  touchAfter: 24 * 3600
 })
 
 store.on("error", (err) => {
@@ -133,7 +128,7 @@ store.on("error", (err) => {
 
 //
 const sessionOptions = {
-  store,
+  store: store,
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
